@@ -151,6 +151,9 @@ async def enforce_cap_limit(collection_name: str, couple_code: str):
 async def root():
     return {"message": "Love App API"}
 
+@api_router.get("/health")
+async def health():
+    return {"status": "ok"}
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
     status_dict = input.model_dump()
